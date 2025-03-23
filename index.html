@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Wireless Headphones - ShopHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base styles and reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        button, input {
+            font-family: inherit;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #3a86ff;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-menu li a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu li a:hover {
+            color: #3a86ff;
+        }
+        
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .nav-icons a {
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        
+        .nav-icons a:hover {
+            color: #3a86ff;
+        }
+        
+        .cart-icon {
+            position: relative;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #3a86ff;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 20px 5%;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .breadcrumb a:hover {
+            color: #3a86ff;
+        }
+        
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 50px;
+        }
+        
+        /* Product Section */
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        
+        /* Product Gallery */
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .main-image {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            height: 400px;
+        }
+        
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .caption {
+            text-align: center;
+            margin-top: 10px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .thumbnail-container {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            border: 2px solid transparent;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .thumbnail.active {
+            border-color: #3a86ff;
+        }
+        
+        /* Product Details */
+        .product-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .stars {
+            color: #ffc107;
+        }
+        
+        .reviews-count {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .current-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .original-price {
+            font-size: 18px;
+            color: #999;
+            text-decoration: line-through;
+        }
+        
+        .discount {
+            background-color: #ff5a5f;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .product-description {
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #555;
+        }
+        
+        /* Color Selection */
+        .product-colors {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .color-selection {
+            font-size: 16px;
+            color: #555;
+        }
+        
+        /* Quantity Selector */
+        .product-quantity {
+            margin-bottom: 25px;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        
+        .quantity-btn {
+            width: 35px;
+            height: 35px;
+            background-color: #f1f3f5;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .quantity-btn:hover {
+            background-color: #e9ecef;
+        }
+        
+        .quantity-input {
+            width: 50px;
+            height: 35px;
+            text-align: center;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+        
+        .stock-info {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Action Buttons */
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .add-to-cart-btn {
+            background-color: #3a86ff;
+            color: white;
+            flex: 1;
+        }
+        
+        .add-to-cart-btn:hover {
+            background-color: #2d6ccc;
+        }
+        
+        .buy-now-btn {
+            background-color: #333;
+            color: white;
+            flex: 1;
+        }
+        
+        .buy-now-btn:hover {
+            background-color: #222;
+        }
+        
+        .wishlist-btn {
+            width: 48px;
+            background-color: #f1f3f5;
+            color: #666;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .wishlist-btn:hover {
+            background-color: #e9ecef;
+            color: #ff5a5f;
+        }
+        
+        /* Product Meta */
+        .product-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* Product Tabs */
+        .product-tabs {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .tab-btn {
+            padding: 15px 25px;
+            border: none;
+            background: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active {
+            color: #3a86ff;
+            border-bottom: 2px solid #3a86ff;
+        }
+        
+        .tab-btn:hover {
+            color: #3a86ff;
+        }
+        
+        .tab-content {
+            padding: 25px;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 5% 20px;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .product-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-actions {
+                flex-wrap: wrap;
+            }
+            
+            .tab-buttons {
+                flex-wrap: wrap;
+            }
+            
+            .tab-btn {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">ShopHub</div>
+            <ul class="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#"><i class="fas fa-user"></i></a>
+                <a href="#" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb">
+        <a href="#">Home</a> / <a href="#">Shop</a> / Premium Wireless Headphones
+    </div>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Product Section -->
+        <section class="product-container">
+            <!-- Product Gallery -->
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img src="" alt="Premium Wireless Headphones">
+                    <div class="caption">Headphones</div>
+                </div>
+                <div class="thumbnail-container">
+                    <div class="thumbnail active">
+                        <img src="https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aGVhZHBob25lcyUyMGJsYWNrfGVufDB8fDB8fHww" alt="Headphones Front View">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://plus.unsplash.com/premium_photo-1664194584321-0d14faa7815b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fGhlYWRwaG9uZXMlMjBibGFja3xlbnwwfHwwfHx8MA%3D%3D" alt="Headphones Side View">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://plus.unsplash.com/premium_photo-1679913891276-ac874f22773f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aGVhZHBob25lcyUyMGJsYWNrfGVufDB8fDB8fHww" alt="Headphones Back View">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://images.unsplash.com/photo-1602748152445-e24de6ea295d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGhlYWRwaG9uZXMlMjBibGFja3xlbnwwfHwwfHx8MA%3D%3D" alt="Headphones With Case">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Details -->
+            <div class="product-details">
+                <h1 class="product-title">Premium Wireless Headphones</h1>
+                
+                <div class="product-rating">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="reviews-count">(128 reviews)</span>
+                </div>
+                
+                <div class="product-price">
+                    <span class="current-price">$129.99</span>
+                    <span class="original-price">$199.99</span>
+                    <span class="discount">35% OFF</span>
+                </div>
+                
+                <div class="product-description">
+                    <p>Experience unparalleled sound quality with our Premium Wireless Headphones. Featuring active noise cancellation, 40-hour battery life, and comfortable over-ear design for extended listening sessions. Connect via Bluetooth 5.0 for seamless pairing with all your devices.</p>
+                </div>
+                
+                <div class="product-colors">
+                    <h3 class="section-title">Color</h3>
+                    <div class="color-selection">Black</div>
+                </div>
+                
+                <div class="product-quantity">
+                    <h3 class="section-title">Quantity</h3>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn">-</button>
+                        <input type="number" value="1" min="1" class="quantity-input">
+                        <button class="quantity-btn">+</button>
+                    </div>
+                    <div class="stock-info">In stock (15 items)</div>
+                </div>
+                
+                <div class="product-actions">
+                    <button class="btn add-to-cart-btn">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                    <button class="btn buy-now-btn">Buy Now</button>
+                    <button class="btn wishlist-btn">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                
+                <div class="product-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-truck"></i>
+                        <span>Free shipping on orders over $50</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-undo"></i>
+                        <span>30-day easy returns</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>2-year warranty</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Product Tabs -->
+        <section class="product-tabs">
+            <div class="tab-buttons">
+                <button class="tab-btn active">Product Details</button>
+                <button class="tab-btn">Specifications</button>
+                <button class="tab-btn">Reviews</button>
+                <button class="tab-btn">Shipping & Returns</button>
+            </div>
+            
+            <div class="tab-content">
+                <h3>Product Details</h3>
+                <p>Our Premium Wireless Headphones represent the pinnacle of audio technology. Designed for audiophiles and casual listeners alike, these headphones deliver crystal-clear highs, rich mids, and deep bass for an immersive listening experience.</p>
+                <br>
+                <p>The active noise cancellation technology effectively blocks out ambient noise, allowing you to focus on your music or calls without distraction. With plush memory foam ear cushions and an adjustable headband, these headphones provide exceptional comfort for extended wear.</p>
+                <br>
+                <ul style="list-style-type: disc; padding-left: 20px;">
+                    <li>Premium sound quality with deep bass and clear highs</li>
+                    <li>Active Noise Cancellation for immersive listening</li>
+                    <li>Bluetooth 5.0 with multi-device pairing</li>
+                    <li>Built-in microphone for hands-free calls</li>
+                    <li>Touch controls for easy operation</li>
+                    <li>Foldable design for easy storage and travel</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ShopHub. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Simple JavaScript for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Quantity buttons
+            const decreaseBtn = document.querySelector('.quantity-btn:first-child');
+            const increaseBtn = document.querySelector('.quantity-btn:last-child');
+            const quantityInput = document.querySelector('.quantity-input');
+            
+            decreaseBtn.addEventListener('click', function() {
+                let value = parseInt(quantityInput.value);
+                if (value > 1) {
+                    quantityInput.value = value - 1;
+                }
+            });
+            
+            increaseBtn.addEventListener('click', function() {
+                let value = parseInt(quantityInput.value);
+                quantityInput.value = value + 1;
+            });
+            
+            // Thumbnails
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.querySelector('.main-image img');
+            const caption = document.querySelector('.caption');
+            
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    // Remove active class from all thumbnails
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked thumbnail
+                    this.classList.add('active');
+                    // Update main image
+                    mainImage.src = this.querySelector('img').src;
+                    // Update caption based on alt text
+                    caption.textContent = this.querySelector('img').alt;
+                });
+            });
+            
+            // Tabs
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all tab buttons
+                    tabButtons.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    // In a real scenario, this would show the appropriate tab content
+                });
+            });
+        });
+    </script>
+</body>
+</html>
